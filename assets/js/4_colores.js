@@ -12,14 +12,13 @@ document.addEventListener("keydown", function (event) {
             colorSeleccionado = "skyblue";
             break;
         case "q":
-            colorSeleccionado = "purple";
-            agregarElemento();
+            agregarElemento('purple');
             break;
         case "w":
-            colorSeleccionado = "grey";
+            agregarElemento('grey');
             break;
         case "e":
-            colorSeleccionado = "brown";
+            agregarElemento('brown');
             break;
         default:
             return;
@@ -30,16 +29,19 @@ document.addEventListener("keydown", function (event) {
     keyDiv.style.backgroundColor = colorSeleccionado;
 });
 
-function agregarElemento() {
-    // Obtenemos el elemento contenedor por su ID
-    keyDiv = document.getElementById("key");
-    // Creamos un nuevo elemento <div>
-    nuevoElemento = document.createElement("div");
-    // Asignamos un texto al nuevo elemento
-    nuevoElemento.style = "Elemento agregado";
-    // Agregamos el nuevo elemento al contenedor
-    keyDiv.appendChild(nuevoElemento);
+function agregarElemento(color) {
+    const nuevoElemento = document.getElementById("nuevoElemento");
+    if (nuevoElemento) {
+        nuevoElemento.style.backgroundColor = color;
+    } else {
+        const div = document.createElement("div");
+        div.id = "nuevoElemento";
+        div.style.width = "200px";
+        div.style.height = "200px";
+        div.style.backgroundColor = color;
+        document.body.appendChild(div);
     }
+}
 
 
 const pintar = function (evento) {
