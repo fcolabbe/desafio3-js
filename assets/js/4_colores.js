@@ -1,29 +1,21 @@
 document.addEventListener("keydown", function (event) {
     const key = event.key.toLowerCase();
     let colorSeleccionado;
-    switch (key) {
-        case "a":
-            colorSeleccionado = "pink";
-            break;
-        case "s":
-            colorSeleccionado = "orange";
-            break;
-        case "d":
-            colorSeleccionado = "skyblue";
-            break;
-        case "q":
-            agregarElemento('purple');
-            break;
-        case "w":
-            agregarElemento('grey');
-            break;
-        case "e":
-            agregarElemento('brown');
-            break;
-        default:
-            return;
+    if (key === "a") {
+        colorSeleccionado = "pink";
+    } else if (key === "s") {
+        colorSeleccionado = "orange";
+    } else if (key === "d") {
+        colorSeleccionado = "skyblue";
+    } else if (key === "q") {
+        agregarElemento('purple');
+    } else if (key === "w") {
+        agregarElemento('grey');
+    } else if (key === "e") {
+        agregarElemento('brown');
+    } else {
+        return;
     }
-
 
     const keyDiv = document.getElementById("key");
     keyDiv.style.backgroundColor = colorSeleccionado;
